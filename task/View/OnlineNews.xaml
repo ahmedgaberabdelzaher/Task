@@ -7,6 +7,6 @@
         <ToolbarItem IconImageSource="search.png"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Image Source="profile.png"></Image>
+              <Label Text="Sorry, Service not available"></Label>
     </ContentPage.Content>
 </ContentPage>

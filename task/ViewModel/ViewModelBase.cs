@@ -1,11 +1,12 @@
 ﻿using System;
+using Prism.AppModel;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 
 namespace task.ViewModel
 {
-    public class ViewModelBase : BindableBase,INavigatedAware
+    public class ViewModelBase : BindableBase,INavigatedAware, IPageLifecycleAware
     {
         bool isLoading = false;
 
@@ -31,6 +32,15 @@ namespace task.ViewModel
         }
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
+        {
+        }
+
+
+        public virtual void OnAppearing()
+        {
+        }
+
+        public virtual void OnDisappearing()
         {
         }
     }

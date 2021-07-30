@@ -11,7 +11,7 @@ namespace task.Service.Classes
 
         public async Task<Tuple<ArticlesModel, bool, string>> GetArticles(string source)
         {
-            var response = await HttpManager.GetAsync<ArticlesModel>($"https://newsapi.org/v1/articles?source={source}&apiKey=33d48e11ae934d1da44b75f767eb89e0").ConfigureAwait(false);
+            var response = await HttpManager.GetAsync<ArticlesModel>($"{App.baseUrl}articles?source={source}&apiKey={App.apiKey}").ConfigureAwait(false);
             return response;
         }
     }

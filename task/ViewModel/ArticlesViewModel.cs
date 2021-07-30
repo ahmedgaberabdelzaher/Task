@@ -38,7 +38,9 @@ namespace task.ViewModel
         IArticleServices _articleServices;
         public ArticlesViewModel(INavigationService navigationService, IPageDialogService dialogService,IArticleServices articleServices) : base(navigationService, dialogService)
         {
+           
             _articleServices = articleServices;
+            ArticlesLst = new ObservableCollection<Article>();
             NavigateToArticleDetailPageCommand = new DelegateCommand(NavigateToArticleDetailPage);
             GetArticles();
         }
@@ -48,13 +50,21 @@ namespace task.ViewModel
             {
                 var navParameters = new NavigationParameters();
                 navParameters.Add("Article", SelectedArticle);
-                NavigationService.NavigateAsync("NavigationPage/Home/ArticleDetails", navParameters);
+                var page = NavigationService.GetNavigationUriPath();
+
+                if (page.EndsWith("/Home"))
+                {
+                    NavigationService.NavigateAsync("NavigationPage/Home/ArticleDetails", navParameters);
+                }
+                else
+                {
+                    NavigationService.NavigateAsync("ArticleDetails", navParameters);
+                }
                 SelectedArticle = null;
 
             }
-
+            //
         }
-
         async Task GetArticles()
         {
             List<Article> articles = new List<Article>();
@@ -79,7 +89,16 @@ namespace task.ViewModel
 
                     }
                     else
-                    { await DialogService.DisplayAlertAsync("", response.Item3, "Ok"); }
+                    {
+                        articles = new List<Article>()
+{
+new Article()
+{
+     author="sdsd",
+     title="sasas", description="sasas", urlToImage="asas"
+}
+};
+                        await DialogService.DisplayAlertAsync("", response.Item3, "Ok"); }
                 }
                 ArticlesLst =new ObservableCollection<Article>(articles);
                

@@ -25,7 +25,9 @@ DownsampleToViewSize = "true"
 />
                            <!-- <Image Source="{Binding urlToImage}"></Image>-->
                             <Label Text="{Binding title}" HorizontalOptions="Start" ></Label>
-                             <Label HorizontalOptions="Start" FontSize="16" Text="{Binding author,StringFormat='By {0}'}" TextColor="DarkGray"></Label>
+                             <Label HorizontalOptions="Start" FontSize="17" Text="{Binding author,StringFormat='By {0}'}" TextColor="DarkGray"></Label>
+                                                        <Label Text="{Binding publishedAt, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalOptions="EndAndExpand" FontSize="14" ></Label>
+
                         </StackLayout>
                     </ContentView>
                 </DataTemplate>

@@ -16,9 +16,11 @@ namespace task
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync("NavigationPage/Home");
+            await NavigationService.NavigateAsync("/Home/NavigationPage/Articles");
 
         }
+          public static string apiKey = "63bc7237ad8748d4afbd7ab5fc5274ff";
+        public static string baseUrl = "https://newsapi.org/v1/";
 
 
         public App() : this(null) { }

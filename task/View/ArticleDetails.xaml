@@ -9,7 +9,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout Padding="15" Margin="10">
+        <StackLayout Padding="15,15,15,5" Margin="10">
                         <Frame  BackgroundColor="White" Padding="20">
                             <StackLayout>
                            <!-- <Image Source="{Binding CurrentArticle.urlToImage}"></Image>-->
