@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="task.View.ArticleDetails" Title="ARTICLE DETAILS">
+        <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="search.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="15" Margin="10">
+                        <Frame  BackgroundColor="White" Padding="20">
+                            <StackLayout>
+                           <!-- <Image Source="{Binding CurrentArticle.urlToImage}"></Image>-->
+                                                            <ffimageloading:CachedImage  Aspect="AspectFit" Margin="-20,-20,-20,10"
+Source="{Binding CurrentArticle.urlToImage}"
+ LoadingPlaceholder="placeholder.png"
+ErrorPlaceholder="placeholder.png"
+DownsampleToViewSize = "true"
+/>
+
+                            <Label Text="{Binding CurrentArticle.title}" HorizontalOptions="Start" ></Label>
+                            <Label HorizontalOptions="Start" FontSize="16" Text="{Binding CurrentArticle.author,StringFormat='By {0}'}" TextColor="DarkGray"></Label>
+                             <Label Text="{Binding CurrentArticle.description}" FontSize="16" HorizontalOptions="Start" ></Label>
+                                </StackLayout>
+                            </Frame>
+            <Button Text="Open WebSite" BackgroundColor="Black" TextColor="White" VerticalOptions="EndAndExpand"></Button>
+            </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

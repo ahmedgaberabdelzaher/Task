@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<network-security-config>  
+  <domain-config cleartextTrafficPermitted="true">  
+    <domain includeSubdomains="true">http://newsapi.org</domain>
+    <domain includeSubdomains="true">http://newsapi.org</domain> <!-- Debug port -->
+  </domain-config>  
+</network-security-config> 

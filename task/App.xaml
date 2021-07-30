@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="task.App">
+    <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                        <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="FontSize" Value="Large"></Setter>
+
+        </Style>
+                    <Style x:Key="ActivityIndicator" TargetType="ActivityIndicator">
+                <Setter Property="VerticalOptions"  Value="Center"/>
+                <Setter     Property= "HorizontalOptions"  Value="Center" />
+                <Setter     Property="Color"   Value="Black"/>
+            </Style>
+    </Application.Resources>
+</prism:PrismApplication>

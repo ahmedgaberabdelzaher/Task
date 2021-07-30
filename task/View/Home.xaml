@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MasterDetailPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:prismBehav="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+         xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+prism:ViewModelLocator.AutowireViewModel="True"     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:task.View" Title="master" NavigationPage.HasNavigationBar="False"
+    x:Class="task.View.Home">
+    <MasterDetailPage.Master>
+<ContentPage Title="Menu">
+              <ContentPage.Content>
+           <StackLayout>
+        <ListView x:Name="listView" ItemsSource="{Binding MeuItemsLst}"  SelectedItem="{Binding SelectedMenuItem,Mode=TwoWay}">
+            <ListView.Header>
+                <Grid Padding="40,15,10,30" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                         <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                           <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                  <Image Source="profile.png" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HeightRequest="50"></Image>
+                  <Label Text="Welcome " Grid.Row="0"  Grid.Column="1" ></Label>
+                  <Label Text="Tony Shady" TextColor="Black" FontSize="18" Grid.Row="1"  Grid.Column="1" ></Label>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="selected.png" Grid.Column="0" IsVisible="{Binding IsSellected}"></Image>
+                            <Image Margin="30,10,10,5" VerticalOptions="CenterAndExpand" Source="{Binding IconSource}" Grid.Column="1"/>
+                            <Label Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Text="{Binding Title}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Behaviors>
+                <prismBehav:EventToCommandBehavior EventName="ItemTapped" Command="{Binding NavigateCommand}">
+                    
+                </prismBehav:EventToCommandBehavior>
+            </ListView.Behaviors>
+        </ListView>
+    </StackLayout>
+    </ContentPage.Content>
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+                        <NavigationPage>
+            <x:Arguments>
+                <views:Articles />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

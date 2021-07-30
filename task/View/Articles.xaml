@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:controls="clr-namespace:task.Controls"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="task.View.Articles" Title="Articles" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="search.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+        <CollectionView ItemsSource="{Binding ArticlesLst}" SelectionMode="Single" SelectedItem="{Binding SelectedArticle}" SelectionChangedCommand="{Binding NavigateToArticleDetailPageCommand}" ItemSizingStrategy="MeasureAllItems">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Padding="20">
+                        <StackLayout>
+                            <ffimageloading:CachedImage 
+Source="{Binding urlToImage}"
+ LoadingPlaceholder="placeholder.png"
+ErrorPlaceholder="placeholder.png"
+DownsampleToViewSize = "true"
+/>
+                           <!-- <Image Source="{Binding urlToImage}"></Image>-->
+                            <Label Text="{Binding title}" HorizontalOptions="Start" ></Label>
+                             <Label HorizontalOptions="Start" FontSize="16" Text="{Binding author,StringFormat='By {0}'}" TextColor="DarkGray"></Label>
+                        </StackLayout>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+            <controls:Loader></controls:Loader>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="task.View.Gallery" Title="Gallery">
+            <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="search.png"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Label Text="There are no item available to be displayed"></Label>
+    </ContentPage.Content>
+</ContentPage>
